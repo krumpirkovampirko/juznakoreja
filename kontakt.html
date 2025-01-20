@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt</title>
+    <link href="stil.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <header>
+        <h1>Kontaktirajte nas</h1>
+    </header>
+    <nav>
+        <a href="index.html">Početna</a>
+        <a href="povijest.html">Povijest</a>
+        <a href="gospodarstvo.html">Gospodarstvo</a>
+        <a href="znamenitosti.html">Znamenitosti</a>
+        <a href="fotogalerija.html">Fotogalerija</a>
+        <a href="kontakt.html" class="activelink">Kontakt</a>
+    </nav>
+    <main>
+        <h2>Kontakt obrazac</h2>
+        <form class="contact-form" id="contactForm">
+            <label for="name">Ime:</label>
+            <input type="text" id="name" name="name">
+            <span class="error-message" id="nameError"></span>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <span class="error-message" id="emailError"></span>
+
+            <label for="message">Poruka:</label>
+            <textarea id="message" name="message" rows="5"></textarea>
+            <span class="error-message" id="messageError"></span>
+
+            <button type="submit">Pošalji</button>
+            <span class="success-message" id="successMessage"></span>
+        </form>
+    </main>
+    <div class="razmak">
+    </div>
+    <footer>
+        <p>&copy; 2025 Južna Koreja. Mop tim-14. Sva prava pridržana.</p>
+    </footer>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let valid = true;
+
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const message = document.getElementById('message');
+
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const messageError = document.getElementById('messageError');
+            const successMessage = document.getElementById('successMessage');
+
+            nameError.textContent = '';
+            emailError.textContent = '';
+            messageError.textContent = '';
+            successMessage.textContent = '';
+
+            if (!name.value.trim()) {
+                nameError.textContent = 'Ime je obavezno.';
+                valid = false;
+            }
+
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email.value.trim()) {
+                emailError.textContent = 'Email je obavezan.';
+                valid = false;
+            } else if (!emailPattern.test(email.value)) {
+                emailError.textContent = 'Unesite ispravnu email adresu.';
+                valid = false;
+            }
+
+            if (!message.value.trim()) {
+                messageError.textContent = 'Poruka je obavezna.';
+                valid = false;
+            }
+
+            if (valid) {
+                successMessage.textContent = 'Poruka uspješno poslana!';
+                name.value = '';
+                email.value = '';
+                message.value = '';
+            }
+        });
+    </script>
+</body>
+</html>

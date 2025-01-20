@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Južna Koreja</title>
+    <link href="stil.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <header>
+        <h1>Dobrodošli u Južnu Koreju</h1>
+    </header>
+    <nav>
+        <a href="index.html" class="activelink">Početna</a>
+        <a href="povijest.html">Povijest</a>
+        <a href="gospodarstvo.html">Gospodarstvo</a>
+        <a href="znamenitosti.html">Znamenitosti</a>
+        <a href="fotogalerija.html">Fotogalerija</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <main>
+        <h2>Dobrodošli na stranicu o Južnoj Koreji</h2>
+        <p>Južna Koreja je zemlja bogate povijesti, dinamične ekonomije i prekrasnih prirodnih znamenitosti. Otkrijte više o ovoj fascinantnoj zemlji kroz naše stranice.</p>
+        <p>Južna Koreja je država u Istočnoj Aziji. Zauzima južni dio Korejskog poluotoka, a nastala je u doba hladnog rata kada je poluotok podijeljen na komunistički sjever i kapitalistički jug. Ima kopnenu granicu samo sa Sjevernom Korejom. Izlazi na Japansko more na istoku, Istočno kinesko more na jugu i Žuto more na zapadu.</p>
+        <p>
+            <img src="images/slika_pocetna.jpg" class="pocetna">
+        </p>
+        <h2>Stanovništvo</h2>
+        <p>Prema popisu stanovništva iz 2015. Južna Koreja imala je 51 069 375 st. (od čega 1 363 712 stranih državljana), tj. dva puta više u usporedbi s razdobljem pedesetak godina prije (25,0 milijuna stanovnika, 1960). S prosječnom gustoćom od 509 st./km² (2015) ubraja se u najgušće naseljene države svijeta. Gotovo polovica (49,5%) ukupnoga stanovništva živi na sjeverozapadu zemlje, odn. na širem području gradova Seoula i Incheona i u pokrajini Gyeonggi (ukupno samo 11% teritorija). Stanovništvo je etnički homogeno; Korejci čine čak 99,9% stanovništva. Procjenjuje se da izvan domovine živi oko sedam milijuna Korejaca (2015), uglavnom u Kini, SAD-u, Japanu i Kanadi.</p>
+        <div class="razmak">
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Južna Koreja. Mop tim-14. Sva prava pridržana.</p>
+    </footer>
+
+    <div class="overlay" id="overlay">
+        <img src="" alt="">
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const galleryImages = document.querySelectorAll(".gallery img");
+            const overlay = document.getElementById("overlay");
+            const overlayImage = overlay.querySelector("img");
+
+            galleryImages.forEach(image => {
+                image.addEventListener("click", function() {
+                    overlay.style.display = "flex";
+                    overlayImage.src = this.src;
+                });
+            });
+
+            overlay.addEventListener("click", function() {
+                overlay.style.display = "none";
+            });
+        });
+
+        
+    </script>
+</body>
+</html>
